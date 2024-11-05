@@ -1,11 +1,11 @@
-import { Request } from 'express'
-import { UnleashContext } from '../unleash'
+import { Request } from "express";
+import { UnleashContext } from "../unleash";
 
 export interface TestContextOptions {
-  remoteAddress?: string
-  request?: any
-  userId?: string
-  sessionId?: string
+  remoteAddress?: string;
+  request?: any;
+  userId?: string;
+  sessionId?: string;
 }
 
 export function createContext({
@@ -21,5 +21,5 @@ export function createContext({
     getSessionId: () => sessionId,
     getUserId: () => userId,
     request: request as Request,
-  }
+  };
 }

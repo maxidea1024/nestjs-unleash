@@ -1,12 +1,12 @@
 export class MetricEntity {
-  id!: string
+  id!: string;
 
-  yes = 0
-  no = 0
+  yes = 0;
+  no = 0;
 
-  createdAt = new Date()
+  createdAt = new Date();
 
   constructor(data: Partial<MetricEntity>) {
-    Object.assign(this, data)
+    Object.assign(this, data);
   }
 }

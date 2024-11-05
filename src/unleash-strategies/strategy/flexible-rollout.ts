@@ -18,8 +18,7 @@ export interface FlexibleRolloutParameters {
 
 @Injectable()
 export class FlexibleRolloutStrategy
-  implements UnleashStrategy<FlexibleRolloutParameters>
-{
+  implements UnleashStrategy<FlexibleRolloutParameters> {
   name = 'flexibleRollout'
 
   // eslint-disable-next-line complexity

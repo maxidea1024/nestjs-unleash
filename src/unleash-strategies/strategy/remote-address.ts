@@ -14,8 +14,7 @@ export interface RemoteAddressParameters {
 
 @Injectable()
 export class RemoteAddressStrategy
-  implements UnleashStrategy<RemoteAddressParameters>
-{
+  implements UnleashStrategy<RemoteAddressParameters> {
   name = 'remoteAddress'
   protected readonly logger = new Logger(RemoteAddressStrategy.name)
 

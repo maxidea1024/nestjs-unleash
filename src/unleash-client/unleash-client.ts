@@ -7,7 +7,7 @@ import { firstValueFrom } from 'rxjs'
 export class UnleashClient {
   private readonly logger = new Logger(UnleashClient.name)
 
-  constructor(private readonly http: HttpService) {}
+  constructor(private readonly http: HttpService) { }
 
   async request<T = unknown>(config: AxiosRequestConfig): Promise<T> {
     const method = config.method ?? '(unknown method)'

@@ -1,20 +1,20 @@
 export interface ToggleMetrics {
-  yes: number
-  no: number
+  yes: number;
+  no: number;
 }
 
 export interface Toggles {
-  [name: string]: ToggleMetrics
+  [name: string]: ToggleMetrics;
 }
 
 export interface Bucket {
-  start: string
-  stop: string
-  toggles: Toggles
+  start: string;
+  stop: string;
+  toggles: Toggles;
 }
 
 export interface SendMetricsRequestBody {
-  appName: string
-  instanceId: string
-  bucket: Bucket
+  appName: string;
+  instanceId: string;
+  bucket: Bucket;
 }
