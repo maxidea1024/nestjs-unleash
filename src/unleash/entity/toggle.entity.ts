@@ -1,21 +1,21 @@
-import { Parameters } from "../..";
-import { Feature, Strategy } from "../../unleash-client";
+import { Parameters } from '../..'
+import { Feature, Strategy } from '../../unleash-client'
 
 export class ToggleEntity {
-  id: string;
+  id: string
 
-  name!: string;
-  description!: string;
-  enabled!: boolean;
-  strategies!: Strategy[];
+  name!: string
+  description!: string
+  enabled!: boolean
+  strategies!: Strategy[]
 
-  type?: string;
-  stale?: boolean;
-  strategy?: string;
-  parameters?: Parameters;
+  type?: string
+  stale?: boolean
+  strategy?: string
+  parameters?: Parameters
 
   constructor(data: Feature) {
-    Object.assign(this, data);
-    this.id = data.name;
+    Object.assign(this, data)
+    this.id = data.name
   }
 }

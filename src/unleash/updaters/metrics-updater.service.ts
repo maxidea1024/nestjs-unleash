@@ -1,28 +1,28 @@
-import { Inject, Injectable } from "@nestjs/common";
-import { SchedulerRegistry } from "@nestjs/schedule";
-import { METRICS_INTERVAL } from "..";
-import { UnleashMetricsClient } from "../../unleash-client";
-import { MetricsRepository } from "../repository/metrics-repository";
-import { BaseUpdater } from "./base-updater";
+import { Inject, Injectable } from '@nestjs/common'
+import { SchedulerRegistry } from '@nestjs/schedule'
+import { METRICS_INTERVAL } from '..'
+import { UnleashMetricsClient } from '../../unleash-client'
+import { MetricsRepository } from '../repository/metrics-repository'
+import { BaseUpdater } from './base-updater'
 
 @Injectable()
 export class MetricsUpdaterService extends BaseUpdater {
-  lastUpdated = new Date();
+  lastUpdated = new Date()
 
   constructor(
     @Inject(METRICS_INTERVAL) protected readonly interval: number,
     protected readonly scheduler: SchedulerRegistry,
     private readonly metrics: MetricsRepository,
-    private readonly metricsClient: UnleashMetricsClient
+    private readonly metricsClient: UnleashMetricsClient,
   ) {
-    super();
+    super()
   }
 
   async update(): Promise<void> {
-    const metrics = this.metrics.findAll();
+    const metrics = this.metrics.findAll()
 
     if (metrics.length === 0) {
-      return;
+      return
     }
 
     try {
@@ -34,14 +34,14 @@ export class MetricsUpdaterService extends BaseUpdater {
             metrics.map((metric) => [
               metric.id,
               { yes: metric.yes, no: metric.no },
-            ])
+            ]),
           ),
         },
-      });
+      })
 
-      this.metrics.flushAll();
+      this.metrics.flushAll()
     } catch (error) {
-      this.logger.warn((error as Error).message);
+      this.logger.warn((error as Error).message)
     }
   }
 }

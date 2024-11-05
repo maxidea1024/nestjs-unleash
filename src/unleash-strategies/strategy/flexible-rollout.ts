@@ -22,7 +22,7 @@ export class FlexibleRolloutStrategy
   name = 'flexibleRollout'
 
   // eslint-disable-next-line complexity
-  resolveStickiness(
+  private resolveStickiness(
     stickiness: UnleashStickiness | undefined,
     context: UnleashContext,
   ): string | undefined {

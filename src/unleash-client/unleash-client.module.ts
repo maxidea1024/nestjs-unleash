@@ -47,6 +47,7 @@ export class UnleashClientModule {
   ): DynamicModule {
     const provider: Provider = {
       provide: UNLEASH_CLIENT_OPTIONS,
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       useFactory: options.useFactory!,
       inject: options.inject,
     }

@@ -37,10 +37,10 @@ export class RemoteAddressStrategy
         if (!isIP(range) && ip.cidrSubnet(range).contains(remoteAddress)) {
           return true
         }
-      } catch (_error) {
-        const error: Error =
-          _error instanceof Error ? _error : new Error(JSON.stringify(_error))
-        this.logger.warn(error.message)
+      } catch (error: unknown) {
+        const resolvedError: Error =
+          error instanceof Error ? error : new Error(JSON.stringify(error))
+        this.logger.warn(resolvedError.message)
       }
     }
 
