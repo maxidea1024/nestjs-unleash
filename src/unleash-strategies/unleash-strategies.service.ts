@@ -24,9 +24,9 @@ export class UnleashStrategiesService implements OnModuleInit {
     private readonly remoteAddress: RemoteAddressStrategy,
     private readonly defaultStrategy: DefaultStrategy,
     private readonly flexibleRollout: FlexibleRolloutStrategy,
-    private readonly gradualRolloutRandom: GradualRolloutRandomStrategy,
-    private readonly gradualRolloutUserId: GradualRolloutUserIdStrategy,
-    private readonly gradualRolloutSessionId: GradualRolloutSessionIdStrategy,
+    // private readonly gradualRolloutRandom: GradualRolloutRandomStrategy,
+    // private readonly gradualRolloutUserId: GradualRolloutUserIdStrategy,
+    // private readonly gradualRolloutSessionId: GradualRolloutSessionIdStrategy,
     @Inject(CUSTOM_STRATEGIES)
     private readonly options: UnleashStrategiesModuleOptions,
     private readonly moduleRef: ModuleRef,
