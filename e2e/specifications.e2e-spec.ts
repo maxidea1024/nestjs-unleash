@@ -25,10 +25,9 @@ import { UnleashService } from '../src/unleash/unleash.service'
 jest.mock('../src/unleash/unleash.context')
 
 // 09-strategy-constraints.json is an enterprise feature. can't test.
-const testSuite = [s1, s2, s6, s7, s10]
+const testSuite = [s1, s2, s6, s7, s8, s10]
 
 // TODO: Variant support
-s8
 
 describe('Specification test', () => {
   let requestContext: jest.Mocked<UnleashContext>
