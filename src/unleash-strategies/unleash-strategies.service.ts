@@ -5,13 +5,10 @@ import {
   ApplicationHostnameStrategy,
   DefaultStrategy,
   FlexibleRolloutStrategy,
-  GradualRolloutRandomStrategy,
-  GradualRolloutSessionIdStrategy,
   RemoteAddressStrategy,
   UnleashStrategy,
   UserWithIdStrategy,
 } from './strategy'
-import { GradualRolloutUserIdStrategy } from './strategy/gradual-rollout-user-id'
 import { CUSTOM_STRATEGIES } from './unleash-strategies.constants'
 
 @Injectable()
@@ -31,15 +28,13 @@ export class UnleashStrategiesService implements OnModuleInit {
     private readonly options: UnleashStrategiesModuleOptions,
     private readonly moduleRef: ModuleRef,
   ) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     this.strategies = [
       userWithId,
       hostname,
       remoteAddress,
       defaultStrategy,
       flexibleRollout,
-      gradualRolloutRandom,
-      gradualRolloutUserId,
-      gradualRolloutSessionId,
     ]
   }
 

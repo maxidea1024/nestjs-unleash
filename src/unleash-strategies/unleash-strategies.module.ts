@@ -8,12 +8,9 @@ import {
   ApplicationHostnameStrategy,
   DefaultStrategy,
   FlexibleRolloutStrategy,
-  GradualRolloutSessionIdStrategy,
   RemoteAddressStrategy,
   UserWithIdStrategy,
 } from './strategy'
-import { GradualRolloutRandomStrategy } from './strategy/gradual-rollout-random'
-import { GradualRolloutUserIdStrategy } from './strategy/gradual-rollout-user-id'
 import { CUSTOM_STRATEGIES } from './unleash-strategies.constants'
 import { UnleashStrategiesService } from './unleash-strategies.service'
 
@@ -24,9 +21,6 @@ import { UnleashStrategiesService } from './unleash-strategies.service'
     FlexibleRolloutStrategy,
     RemoteAddressStrategy,
     UserWithIdStrategy,
-    GradualRolloutRandomStrategy,
-    GradualRolloutSessionIdStrategy,
-    GradualRolloutUserIdStrategy,
   ],
 })
 export class UnleashStrategiesModule {
@@ -72,7 +66,9 @@ export class UnleashStrategiesModule {
     return [
       this.createStrategiesOptionsProvider(options),
       {
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         provide: options.useClass!,
+        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         useClass: options.useClass!,
       },
     ]
@@ -93,6 +89,7 @@ export class UnleashStrategiesModule {
       provide: CUSTOM_STRATEGIES,
       useFactory: async (optionsFactory: UnleashStrategiesOptionsFactory) =>
         await optionsFactory.createStrategiesOptions(),
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       inject: [options.useExisting || options.useClass!],
     }
   }

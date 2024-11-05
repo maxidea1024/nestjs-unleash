@@ -44,10 +44,12 @@ export interface UnleashStrategiesModuleOptions {
 export interface UnleashStrategiesModuleAsyncOptions
   extends Pick<ModuleMetadata, 'imports'> {
   extraProviders?: Provider[]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   inject?: any[]
   useExisting?: Type<UnleashStrategiesOptionsFactory>
   useClass?: Type<UnleashStrategiesOptionsFactory>
   useFactory?: (
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ...args: any[]
   ) => Promise<UnleashStrategiesModuleOptions> | UnleashStrategiesModuleOptions
 }

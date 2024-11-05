@@ -3,9 +3,6 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import s1 from '@unleash/client-specification/specifications/01-simple-examples.json'
 import s2 from '@unleash/client-specification/specifications/02-user-with-id-strategy.json'
-import s3 from '@unleash/client-specification/specifications/03-gradual-rollout-user-id-strategy.json'
-import s4 from '@unleash/client-specification/specifications/04-gradual-rollout-session-id-strategy.json'
-import s5 from '@unleash/client-specification/specifications/05-gradual-rollout-random-strategy.json'
 import s6 from '@unleash/client-specification/specifications/06-remote-address-strategy.json'
 import s7 from '@unleash/client-specification/specifications/07-multiple-strategies.json'
 import s8 from '@unleash/client-specification/specifications/08-variants.json'
@@ -14,13 +11,10 @@ import {
   ApplicationHostnameStrategy,
   DefaultStrategy,
   FlexibleRolloutStrategy,
-  GradualRolloutRandomStrategy,
-  GradualRolloutSessionIdStrategy,
   RemoteAddressStrategy,
   UnleashStrategiesService,
   UserWithIdStrategy,
 } from '../src'
-import { GradualRolloutUserIdStrategy } from '../src/unleash-strategies/strategy/gradual-rollout-user-id'
 import { CUSTOM_STRATEGIES } from '../src/unleash-strategies/unleash-strategies.constants'
 import { ToggleEntity } from '../src/unleash/entity/toggle.entity'
 import { MetricsService } from '../src/unleash/metrics.service'
@@ -31,7 +25,7 @@ import { UnleashService } from '../src/unleash/unleash.service'
 jest.mock('../src/unleash/unleash.context')
 
 // 09-strategy-constraints.json is an enterprise feature. can't test.
-const testSuite = [s1, s2, s3, s4, s5, s6, s7, s10]
+const testSuite = [s1, s2, s6, s7, s10]
 
 // TODO: Variant support
 s8
@@ -53,11 +47,8 @@ describe('Specification test', () => {
         ApplicationHostnameStrategy,
         DefaultStrategy,
         FlexibleRolloutStrategy,
-        GradualRolloutRandomStrategy,
-        GradualRolloutUserIdStrategy,
         RemoteAddressStrategy,
         UserWithIdStrategy,
-        GradualRolloutSessionIdStrategy,
       ],
     }).compile()
 
