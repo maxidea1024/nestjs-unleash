@@ -1,6 +1,8 @@
+/* eslint-disable no-warning-comments */
 import { Parameters } from '../..'
 import { Feature, Strategy } from '../../unleash-client'
 
+// TODO: variants, dependencies
 export class ToggleEntity {
   id: string
 

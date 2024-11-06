@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-warning-comments
 // TODO: persist on disk
 
 export abstract class BaseRepository<T extends { id: string }> {

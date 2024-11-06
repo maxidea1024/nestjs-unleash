@@ -1,3 +1,4 @@
+/* eslint-disable no-warning-comments */
 import {
   applyDecorators,
   CanActivate,
@@ -19,10 +20,14 @@ export class IfEnabledGuard implements CanActivate {
   ) { }
 
   canActivate(context: ExecutionContext): boolean {
+    // TODO: variants
     const toggle = this.reflector.get<string>(
       METADATA_TOGGLE_NAME,
       context.getHandler(),
     )
+
+    // TODO: variant 값을 처리하기가 애매하다. 타입을 고려해야하므로..
+    // if (this.reflector.get<string | undefined>())
 
     if (!this.unleash.isEnabled(toggle)) {
       throw new NotFoundException()
