@@ -22,6 +22,24 @@ export class FlexibleRolloutStrategy
   name = 'flexibleRollout'
 
   // eslint-disable-next-line complexity
+  isEnabled(
+    parameters: FlexibleRolloutParameters,
+    context: UnleashContext,
+  ): boolean {
+    const groupId = parameters.groupId
+    const percentage = Number(parameters.rollout)
+    const stickiness = parameters.stickiness || UnleashStickiness.default
+    const stickinessId = this.resolveStickiness(stickiness, context)
+
+    if (!stickinessId) {
+      return false
+    }
+
+    const normalizedUserId = normalizedValue(stickinessId, groupId)
+    return percentage > 0 && normalizedUserId <= percentage
+  }
+
+  // eslint-disable-next-line complexity
   private resolveStickiness(
     stickiness: UnleashStickiness | undefined,
     context: UnleashContext,
@@ -39,24 +57,5 @@ export class FlexibleRolloutStrategy
       default:
         return userId || sessionId || randomGenerator().toString()
     }
-  }
-
-  // eslint-disable-next-line complexity
-  isEnabled(
-    parameters: FlexibleRolloutParameters,
-    context: UnleashContext,
-  ): boolean {
-    const groupId = parameters.groupId
-    const percentage = Number(parameters.rollout)
-    const stickiness = parameters.stickiness || UnleashStickiness.default
-    const stickinessId = this.resolveStickiness(stickiness, context)
-
-    if (!stickinessId) {
-      return false
-    }
-
-    const normalizedUserId = normalizedValue(stickinessId, groupId)
-
-    return percentage > 0 && normalizedUserId <= percentage
   }
 }

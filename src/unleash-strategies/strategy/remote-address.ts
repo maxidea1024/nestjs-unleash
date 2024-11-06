@@ -38,7 +38,7 @@ export class RemoteAddressStrategy
           return true
         }
       } catch (error: unknown) {
-        const resolvedError: Error =
+        const resolvedError =
           error instanceof Error ? error : new Error(JSON.stringify(error))
         this.logger.warn(resolvedError.message)
       }

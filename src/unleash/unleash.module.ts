@@ -53,7 +53,8 @@ export class UnleashModule implements OnModuleInit {
     private readonly togglesUpdater: TogglesUpdaterService,
     private readonly metricsUpdater: MetricsUpdaterService,
     private readonly registerClient: UnleashRegisterClient,
-    @Inject(METRICS_INTERVAL) private readonly metricsInterval: number,
+    @Inject(METRICS_INTERVAL)
+    private readonly metricsInterval: number,
     private readonly strategies: UnleashStrategiesService,
     @Inject(UNLEASH_MODULE_OPTIONS)
     private readonly options: UnleashModuleOptions,
@@ -69,7 +70,7 @@ export class UnleashModule implements OnModuleInit {
           this.strategies.findAll().map((strategy) => strategy.name),
         )
         await this.metricsUpdater.start()
-      } catch (error) {
+      } catch (error: unknown) {
         this.logger.error(error)
       }
     }
@@ -84,6 +85,7 @@ export class UnleashModule implements OnModuleInit {
       }),
       inject: [UNLEASH_MODULE_OPTIONS],
     })
+
     const clientModule = UnleashClientModule.registerAsync({
       useFactory: (options: UnleashModuleOptions) => ({
         baseURL: options.url,
@@ -94,6 +96,7 @@ export class UnleashModule implements OnModuleInit {
       }),
       inject: [UNLEASH_MODULE_OPTIONS],
     })
+
     return {
       global: options?.global ?? true,
       module: UnleashModule,
@@ -131,6 +134,7 @@ export class UnleashModule implements OnModuleInit {
       }),
       inject: [UNLEASH_MODULE_OPTIONS, ModuleRef],
     })
+
     const clientModule = UnleashClientModule.registerAsync({
       // eslint-disable-next-line sonarjs/no-identical-functions
       useFactory: (options: UnleashModuleOptions) => ({
@@ -142,6 +146,7 @@ export class UnleashModule implements OnModuleInit {
       }),
       inject: [UNLEASH_MODULE_OPTIONS],
     })
+
     return {
       global: options?.global ?? true,
       module: UnleashModule,

@@ -15,6 +15,16 @@ export class UnleashService<TCustomData = unknown> {
     private readonly context: UnleashContext<TCustomData>,
   ) { }
 
+  isEnabled(
+    name: string,
+    defaultValue = false,
+    customData?: TCustomData,
+  ): boolean {
+    const isEnabled = this.#isEnabled(name, defaultValue, customData)
+    this.metrics.increase(name, isEnabled)
+    return isEnabled
+  }
+
   // eslint-disable-next-line sonarjs/cognitive-complexity
   #isEnabled(
     name: string,
@@ -57,21 +67,11 @@ export class UnleashService<TCustomData = unknown> {
         }
         return isEnabled
       } catch (error: unknown) {
-        const resolvedError: Error =
+        const resolvedError =
           error instanceof Error ? error : new Error(JSON.stringify(error))
         this.logger.error(resolvedError.message, resolvedError.stack)
         return false
       }
     })
-  }
-
-  isEnabled(
-    name: string,
-    defaultValue = false,
-    customData?: TCustomData,
-  ): boolean {
-    const isEnabled = this.#isEnabled(name, defaultValue, customData)
-    this.metrics.increase(name, isEnabled)
-    return isEnabled
   }
 }

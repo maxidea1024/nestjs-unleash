@@ -1,3 +1,5 @@
+// TODO: variants
+
 export interface ToggleMetrics {
   yes: number
   no: number

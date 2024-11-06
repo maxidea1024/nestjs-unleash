@@ -22,7 +22,6 @@ export class UserWithIdStrategy
     }
 
     const userIds = parameters.userIds.split(/\s*,\s*/)
-
     return userIds.includes(userId)
   }
 }

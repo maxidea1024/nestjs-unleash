@@ -4,7 +4,8 @@ import { UnleashStrategy } from './strategy.interface'
 export class DefaultStrategy implements UnleashStrategy<never> {
   name = 'default'
 
-  isEnabled(_parameters: never, _context: UnleashContext): boolean {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  isEnabled(parameters: never, context: UnleashContext): boolean {
     return true
   }
 }

@@ -3,6 +3,8 @@ export interface GetFeaturesResponse {
   features: Feature[]
 }
 
+// TODO: parent features
+
 export interface Feature {
   name: string
   description: string
