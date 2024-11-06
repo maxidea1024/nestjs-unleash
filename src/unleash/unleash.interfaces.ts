@@ -67,9 +67,12 @@ export interface UnleashModuleOptions {
 export interface UnleashModuleAsyncOptions
   extends Pick<ModuleMetadata, 'imports'> {
   global?: boolean
+
   extraProviders?: Provider[]
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   inject?: any[]
+
   useFactory?: (
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ...args: any[]
