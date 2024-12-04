@@ -1,5 +1,5 @@
-import { Logger, OnApplicationShutdown } from '@nestjs/common'
-import { SchedulerRegistry } from '@nestjs/schedule'
+import { Logger, type OnApplicationShutdown } from '@nestjs/common'
+import type { SchedulerRegistry } from '@nestjs/schedule'
 
 export abstract class BaseUpdater implements OnApplicationShutdown {
   private timeout?: NodeJS.Timeout

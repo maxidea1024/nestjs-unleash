@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { ToggleEntity } from '../entity/toggle.entity'
+import type { ToggleEntity } from '../entity/toggle.entity'
 import { BaseRepository } from './base-repository'
 
 @Injectable()

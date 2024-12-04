@@ -1,7 +1,11 @@
 import { Inject, Injectable, Scope } from '@nestjs/common'
 import { REQUEST } from '@nestjs/core'
-import { UnleashModuleOptions } from '.'
-import { ExpressSession, FastifySession, Request } from '../unleash-strategies'
+import type { UnleashModuleOptions } from '.'
+import type {
+  ExpressSession,
+  FastifySession,
+  Request,
+} from '../unleash-strategies'
 import { UNLEASH_MODULE_OPTIONS } from './unleash.constants'
 
 const defaultUserIdFactory = (request: Request<{ id: string }>) => {

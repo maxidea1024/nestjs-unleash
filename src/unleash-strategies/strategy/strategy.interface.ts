@@ -1,4 +1,4 @@
-import { UnleashContext } from '../../unleash'
+import type { UnleashContext } from '../../unleash'
 
 export interface UnleashStrategy<T = unknown, U = unknown> {
   /**

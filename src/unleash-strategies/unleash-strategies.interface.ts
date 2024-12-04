@@ -1,5 +1,5 @@
-import { ModuleMetadata, Provider, Type } from '@nestjs/common'
-import { UnleashStrategy } from './strategy'
+import type { ModuleMetadata, Provider, Type } from '@nestjs/common'
+import type { UnleashStrategy } from './strategy'
 
 // https://github.com/SerayaEryn/fastify-session/blob/master/types/types.d.ts
 export interface FastifySession {

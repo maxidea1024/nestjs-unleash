@@ -1,5 +1,5 @@
-import { UnleashModuleOptions } from '.'
-import { Request } from '../unleash-strategies'
+import type { UnleashModuleOptions } from '.'
+import type { Request } from '../unleash-strategies'
 import { UnleashContext } from './unleash.context'
 
 function createRequest(

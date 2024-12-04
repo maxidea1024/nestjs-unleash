@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { MetricEntity } from './entity/metric.entity'
-import { MetricsRepository } from './repository/metrics-repository'
+import type { MetricsRepository } from './repository/metrics-repository'
 
 @Injectable()
 export class MetricsService {

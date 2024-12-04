@@ -1,5 +1,5 @@
-import { DynamicModule, Module, Provider } from '@nestjs/common'
-import {
+import { type DynamicModule, Module, type Provider } from '@nestjs/common'
+import type {
   UnleashStrategiesModuleAsyncOptions,
   UnleashStrategiesModuleOptions,
   UnleashStrategiesOptionsFactory,
@@ -29,6 +29,7 @@ import { UnleashStrategiesService } from './unleash-strategies.service'
     GradualRolloutUserIdStrategy,
   ],
 })
+// biome-ignore lint/complexity/noStaticOnlyClass: <explanation>
 export class UnleashStrategiesModule {
   static register({
     strategies = [],
@@ -46,10 +47,10 @@ export class UnleashStrategiesModule {
     }
   }
 
-  public static registerAsync(
+  static registerAsync(
     options: UnleashStrategiesModuleAsyncOptions,
   ): DynamicModule {
-    const providers = this.createStrategiesProviders(options)
+    const providers = UnleashStrategiesModule.createStrategiesProviders(options)
     return {
       module: UnleashStrategiesModule,
       imports: options.imports,
@@ -66,11 +67,11 @@ export class UnleashStrategiesModule {
     options: UnleashStrategiesModuleAsyncOptions,
   ): Provider[] {
     if (options.useExisting || options.useFactory) {
-      return [this.createStrategiesOptionsProvider(options)]
+      return [UnleashStrategiesModule.createStrategiesOptionsProvider(options)]
     }
 
     return [
-      this.createStrategiesOptionsProvider(options),
+      UnleashStrategiesModule.createStrategiesOptionsProvider(options),
       {
         provide: options.useClass!,
         useClass: options.useClass!,

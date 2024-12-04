@@ -1,7 +1,7 @@
-import { ModuleMetadata, Provider, Type } from '@nestjs/common'
-import { AxiosRequestConfig } from 'axios'
-import { Request as ExpressRequest } from 'express'
-import { Request, UnleashStrategy } from '../unleash-strategies'
+import type { ModuleMetadata, Provider, Type } from '@nestjs/common'
+import type { AxiosRequestConfig } from 'axios'
+import type { Request as ExpressRequest } from 'express'
+import type { Request, UnleashStrategy } from '../unleash-strategies'
 
 export interface UnleashModuleOptions {
   /**

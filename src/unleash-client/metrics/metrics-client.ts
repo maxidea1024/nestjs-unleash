@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common'
-import { UnleashClient } from '../unleash-client'
+import type { UnleashClient } from '../unleash-client'
 import { UNLEASH_CLIENT_OPTIONS } from '../unleash-client.constants'
-import { UnleashClientModuleOptions } from '../unleash-client.interfaces'
-import { SendMetricsRequestBody } from './metrics-client.interfaces'
+import type { UnleashClientModuleOptions } from '../unleash-client.interfaces'
+import type { SendMetricsRequestBody } from './metrics-client.interfaces'
 
 @Injectable()
 export class UnleashMetricsClient {

@@ -1,5 +1,5 @@
 import { Controller, Get, Logger } from '@nestjs/common'
-import { GetFeaturesResponse } from '../../src'
+import type { GetFeaturesResponse } from '../../src'
 
 @Controller('/unleash')
 export class UnleashMockController {

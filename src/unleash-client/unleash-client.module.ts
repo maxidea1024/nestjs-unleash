@@ -1,6 +1,6 @@
 import { HttpModule } from '@nestjs/axios'
-import { DynamicModule, Module, Provider } from '@nestjs/common'
-import { AxiosRequestConfig } from 'axios'
+import { type DynamicModule, Module, type Provider } from '@nestjs/common'
+import type { AxiosRequestConfig } from 'axios'
 import {
   UnleashFeaturesClient,
   UnleashMetricsClient,
@@ -9,12 +9,13 @@ import {
 import { UnleashStrategiesModule } from '..'
 import { UnleashClient } from './unleash-client'
 import { UNLEASH_CLIENT_OPTIONS } from './unleash-client.constants'
-import {
+import type {
   UnleashClientModuleAsyncOptions,
   UnleashClientModuleOptions,
 } from './unleash-client.interfaces'
 
 @Module({})
+// biome-ignore lint/complexity/noStaticOnlyClass: <explanation>
 export class UnleashClientModule {
   private static optionsFactory(
     options: UnleashClientModuleOptions,
@@ -22,7 +23,6 @@ export class UnleashClientModule {
     return {
       ...options.http,
       baseURL: options.baseURL,
-
       headers: {
         ...options.http?.headers,
         'UNLEASH-INSTANCEID': options.instanceId,

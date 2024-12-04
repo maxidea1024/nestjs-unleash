@@ -1,5 +1,5 @@
 import { SchedulerRegistry } from '@nestjs/schedule'
-import { Test, TestingModule } from '@nestjs/testing'
+import { Test, type TestingModule } from '@nestjs/testing'
 import MockDate from 'mockdate'
 import { UnleashMetricsClient } from '../../unleash-client'
 import { MetricsRepository } from '../repository/metrics-repository'

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
-import { UnleashClient } from '../unleash-client'
-import { GetFeaturesResponse } from './features-client.interfaces'
+import type { UnleashClient } from '../unleash-client'
+import type { GetFeaturesResponse } from './features-client.interfaces'
 
 @Injectable()
 export class UnleashFeaturesClient {

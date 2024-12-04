@@ -1,4 +1,4 @@
-import { Test, TestingModule } from '@nestjs/testing'
+import { Test, type TestingModule } from '@nestjs/testing'
 import MockDate from 'mockdate'
 import { MetricsService } from './metrics.service'
 import { MetricsRepository } from './repository/metrics-repository'

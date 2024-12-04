@@ -5,8 +5,8 @@
 import { Injectable, Logger } from '@nestjs/common'
 import * as ip from 'ip'
 import { isIP } from 'net'
-import { UnleashContext } from '../../unleash'
-import { UnleashStrategy } from './strategy.interface'
+import type { UnleashContext } from '../../unleash'
+import type { UnleashStrategy } from './strategy.interface'
 
 export interface RemoteAddressParameters {
   IPs: string
@@ -38,7 +38,7 @@ export class RemoteAddressStrategy
         if (!isIP(range) && ip.cidrSubnet(range).contains(remoteAddress)) {
           return true
         }
-      } catch (_error) {
+      } catch (_error: unknown) {
         const error: Error =
           _error instanceof Error ? _error : new Error(JSON.stringify(_error))
         this.logger.warn(error.message)

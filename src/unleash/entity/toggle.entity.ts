@@ -1,5 +1,5 @@
-import { Parameters } from '../..'
-import { Feature, Strategy } from '../../unleash-client'
+import type { Parameters } from '../..'
+import type { Feature, Strategy } from '../../unleash-client'
 
 export class ToggleEntity {
   id: string

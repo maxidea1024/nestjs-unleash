@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
-import { UnleashContext } from '../../unleash'
-import { UnleashStrategy } from './strategy.interface'
+import type { UnleashContext } from '../../unleash'
+import type { UnleashStrategy } from './strategy.interface'
 
 export interface UserWithIdParameters {
   userIds: string
@@ -23,7 +23,6 @@ export class UserWithIdStrategy
     }
 
     const userIds = parameters.userIds.split(/\s*,\s*/)
-
     return userIds.includes(userId)
   }
 }

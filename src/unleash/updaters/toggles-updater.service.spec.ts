@@ -1,6 +1,6 @@
 import { HttpStatus } from '@nestjs/common'
 import { SchedulerRegistry } from '@nestjs/schedule'
-import { Test, TestingModule } from '@nestjs/testing'
+import { Test, type TestingModule } from '@nestjs/testing'
 import MockDate from 'mockdate'
 import { UnleashFeaturesClient } from '../../unleash-client'
 import { ToggleRepository } from '../repository/toggle-repository'

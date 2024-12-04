@@ -1,5 +1,5 @@
-import { ModuleMetadata, Type } from '@nestjs/common'
-import { AxiosRequestConfig } from 'axios'
+import type { ModuleMetadata, Type } from '@nestjs/common'
+import type { AxiosRequestConfig } from 'axios'
 
 export interface UnleashClientModuleOptions {
   baseURL: string

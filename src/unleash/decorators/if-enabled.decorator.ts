@@ -1,14 +1,14 @@
 import {
-  applyDecorators,
-  CanActivate,
-  ExecutionContext,
+  type CanActivate,
+  type ExecutionContext,
   Injectable,
   NotFoundException,
   SetMetadata,
   UseGuards,
+  applyDecorators,
 } from '@nestjs/common'
-import { ModuleRef, Reflector } from '@nestjs/core'
-import { UnleashService } from '../unleash.service'
+import type { ModuleRef, Reflector } from '@nestjs/core'
+import type { UnleashService } from '../unleash.service'
 
 @Injectable()
 export class IfEnabledGuard implements CanActivate {

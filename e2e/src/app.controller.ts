@@ -1,6 +1,6 @@
 import { Controller, Get, Param, UseGuards } from '@nestjs/common'
 import { IfEnabled } from '../../src/unleash'
-import { UnleashService } from '../../src/unleash/unleash.service'
+import type { UnleashService } from '../../src/unleash/unleash.service'
 import { UserGuard } from './user.guard'
 
 export interface MyCustomData {

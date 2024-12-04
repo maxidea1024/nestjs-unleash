@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
-import { UnleashContext } from '../../unleash'
+import type { UnleashContext } from '../../unleash'
 import { normalizedValue, randomGenerator } from '../util'
-import { UnleashStrategy } from './strategy.interface'
+import type { UnleashStrategy } from './strategy.interface'
 
 export enum UnleashStickiness {
   default = 'default',
@@ -57,7 +57,6 @@ export class FlexibleRolloutStrategy
     }
 
     const normalizedUserId = normalizedValue(stickinessId, groupId)
-
     return percentage > 0 && normalizedUserId <= percentage
   }
 }

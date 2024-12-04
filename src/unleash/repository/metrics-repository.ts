@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { MetricEntity } from '../entity/metric.entity'
+import type { MetricEntity } from '../entity/metric.entity'
 import { BaseRepository } from './base-repository'
 
 @Injectable()

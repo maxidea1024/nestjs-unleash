@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
-import { UnleashContext } from '../../unleash'
+import type { UnleashContext } from '../../unleash'
 import { randomGenerator } from '../util'
-import { UnleashStrategy } from './strategy.interface'
+import type { UnleashStrategy } from './strategy.interface'
 
 export interface GradualRolloutRandomParameters {
   percentage: `${number}`
@@ -17,8 +17,7 @@ export class GradualRolloutRandomStrategy
     parameters: GradualRolloutRandomParameters,
     _context: UnleashContext,
   ): boolean {
-    const percentage = parseInt(parameters.percentage, 10)
-
+    const percentage = Number.parseInt(parameters.percentage, 10)
     return percentage >= randomGenerator()
   }
 }

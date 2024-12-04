@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
-import { UnleashContext, UnleashStrategy } from '../../src'
-import { MyCustomData } from './app.controller'
+import type { UnleashContext, UnleashStrategy } from '../../src'
+import type { MyCustomData } from './app.controller'
 
 @Injectable()
 export class MyCustomStrategy implements UnleashStrategy {

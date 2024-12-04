@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common'
-import { SchedulerRegistry } from '@nestjs/schedule'
+import type { SchedulerRegistry } from '@nestjs/schedule'
 import { METRICS_INTERVAL } from '..'
-import { UnleashMetricsClient } from '../../unleash-client'
-import { MetricsRepository } from '../repository/metrics-repository'
+import type { UnleashMetricsClient } from '../../unleash-client'
+import type { MetricsRepository } from '../repository/metrics-repository'
 import { BaseUpdater } from './base-updater'
 
 @Injectable()
@@ -40,7 +40,7 @@ export class MetricsUpdaterService extends BaseUpdater {
       })
 
       this.metrics.flushAll()
-    } catch (error) {
+    } catch (error: unknown) {
       this.logger.warn((error as Error).message)
     }
   }

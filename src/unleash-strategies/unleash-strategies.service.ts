@@ -1,7 +1,7 @@
-import { Inject, Injectable, OnModuleInit } from '@nestjs/common'
-import { ModuleRef } from '@nestjs/core'
-import { UnleashStrategiesModuleOptions } from '.'
-import {
+import { Inject, Injectable, type OnModuleInit } from '@nestjs/common'
+import type { ModuleRef } from '@nestjs/core'
+import type { UnleashStrategiesModuleOptions } from '.'
+import type {
   ApplicationHostnameStrategy,
   DefaultStrategy,
   FlexibleRolloutStrategy,
@@ -11,7 +11,7 @@ import {
   UnleashStrategy,
   UserWithIdStrategy,
 } from './strategy'
-import { GradualRolloutUserIdStrategy } from './strategy/gradual-rollout-user-id'
+import type { GradualRolloutUserIdStrategy } from './strategy/gradual-rollout-user-id'
 import { CUSTOM_STRATEGIES } from './unleash-strategies.constants'
 
 @Injectable()

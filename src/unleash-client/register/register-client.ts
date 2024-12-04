@@ -1,9 +1,9 @@
 import { Inject, Injectable, Logger } from '@nestjs/common'
 import { name, version } from '../../../package.json'
-import { UnleashClient } from '../unleash-client'
+import type { UnleashClient } from '../unleash-client'
 import { UNLEASH_CLIENT_OPTIONS } from '../unleash-client.constants'
-import { UnleashClientModuleOptions } from '../unleash-client.interfaces'
-import {
+import type { UnleashClientModuleOptions } from '../unleash-client.interfaces'
+import type {
   UnleashRegisterClientReponsePayload,
   UnleashRegisterClientRequestPayload,
 } from './register-client.interfaces'

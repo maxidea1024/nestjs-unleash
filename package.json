@@ -24,7 +24,7 @@
     "prebuild": "rimraf dist",
     "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start:dev": "nodemon  --exec ts-node --files e2e/src/main.ts",
+    "start:dev": "nodemon --exec ts-node --files e2e/src/main.ts",
     "lint": "eslint --cache .",
     "_postinstall": "is-ci || husky install",
     "prepublish": "pinst --disable",

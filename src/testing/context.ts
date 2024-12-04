@@ -1,5 +1,5 @@
-import { Request } from 'express'
-import { UnleashContext } from '../unleash'
+import type { Request } from 'express'
+import type { UnleashContext } from '../unleash'
 
 export interface TestContextOptions {
   remoteAddress?: string

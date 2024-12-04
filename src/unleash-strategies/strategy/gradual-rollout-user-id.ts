@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
-import { UnleashContext } from '../../unleash'
+import type { UnleashContext } from '../../unleash'
 import { normalizedValue } from '../util'
-import { UnleashStrategy } from './strategy.interface'
+import type { UnleashStrategy } from './strategy.interface'
 
 export interface GradualRolloutUserIdParameters {
   percentage: `${number}`
@@ -25,9 +25,7 @@ export class GradualRolloutUserIdStrategy
     }
 
     const percentage = Number(parameters.percentage)
-
     const normalizedUserId = normalizedValue(userId, parameters.groupId)
-
     return percentage > 0 && normalizedUserId <= percentage
   }
 }

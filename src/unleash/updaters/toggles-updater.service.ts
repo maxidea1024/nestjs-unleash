@@ -1,10 +1,10 @@
 import { HttpStatus, Inject, Injectable } from '@nestjs/common'
-import { SchedulerRegistry } from '@nestjs/schedule'
-import { AxiosError } from 'axios'
+import type { SchedulerRegistry } from '@nestjs/schedule'
+import type { AxiosError } from 'axios'
 import { REFRESH_INTERVAL } from '..'
-import { UnleashFeaturesClient } from '../../unleash-client'
+import type { UnleashFeaturesClient } from '../../unleash-client'
 import { ToggleEntity } from '../entity/toggle.entity'
-import { ToggleRepository } from '../repository/toggle-repository'
+import type { ToggleRepository } from '../repository/toggle-repository'
 import { BaseUpdater } from './base-updater'
 
 @Injectable()
@@ -26,9 +26,12 @@ export class TogglesUpdaterService extends BaseUpdater {
     try {
       const features = await this.features.getFeatures()
 
-      features.features.forEach((feature) => {
+      // features.features.forEach((feature) => {
+      //   this.toggles.updateOrCreate(feature.name, new ToggleEntity(feature))
+      // })
+      for (const feature of features.features) {
         this.toggles.updateOrCreate(feature.name, new ToggleEntity(feature))
-      })
+      }
     } catch (error) {
       if (
         this.isAxiosError(error) &&
