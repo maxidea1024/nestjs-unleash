@@ -34,6 +34,7 @@ export class RemoteAddressStrategy
       if (range === remoteAddress) {
         return true
       }
+
       try {
         if (!isIP(range) && ip.cidrSubnet(range).contains(remoteAddress)) {
           return true

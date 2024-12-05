@@ -25,10 +25,6 @@ export class TogglesUpdaterService extends BaseUpdater {
   async update(): Promise<void> {
     try {
       const features = await this.features.getFeatures()
-
-      // features.features.forEach((feature) => {
-      //   this.toggles.updateOrCreate(feature.name, new ToggleEntity(feature))
-      // })
       for (const feature of features.features) {
         this.toggles.updateOrCreate(feature.name, new ToggleEntity(feature))
       }
